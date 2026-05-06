@@ -64,6 +64,12 @@ jobs:
           PINECONE_INDEX_NAME: dummy
           PINECONE_ENVIRONMENT: dummy
 
+      - name: Print test failure report
+        if: failure()
+        run: |
+          echo "========== SUREFIRE REPORTS =========="
+          find target/surefire-reports -name "*.txt" -exec echo "--- {} ---" \; -exec cat {} \;
+
   frontend-build:
     runs-on: ubuntu-latest
 
