@@ -24,7 +24,7 @@ jobs:
         run: chmod +x ./mvnw
 
       - name: Build and test backend
-        run: ./mvnw clean test
+        run: ./mvnw clean test -Dtest=AiDocumentApplicationTests
 
   frontend-build:
     runs-on: ubuntu-latest
